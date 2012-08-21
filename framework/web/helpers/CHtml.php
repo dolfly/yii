@@ -82,7 +82,8 @@ class CHtml
 	 */
 	public static function encode($text)
 	{
-		return htmlspecialchars($text,ENT_QUOTES,Yii::app()->charset);
+		$string = htmlspecialchars_decode($text, ENT_QUOTES); // aviod that some characters is already encode 
+		return htmlspecialchars($string,ENT_QUOTES,Yii::app()->charset);
 	}
 
 	/**
